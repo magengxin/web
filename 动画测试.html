@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .inner,
+        .main {
+            width: 500px;
+            height: 399px;
+        }
+        .main{
+            position: relative;
+            background: #eee;
+        }
+        .container {
+            width: 500px;
+            height: 199px;
+            background: teal;
+        }
+        .main:before,
+        .main:after,
+        .container:before,
+        .container:after{
+            opacity: 0;
+            transform: scaleY(0);
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 25%;
+            height: 100%;
+            background: rgba(0,0,0,.8);
+            transform-origin: 0 100%;
+            transition: all .3s;
+        }
+        .main:before{
+            transition-delay: .60s;
+        }
+        .main:after{
+            left: 25%;
+            transition-delay: .40s;
+        }
+        .container:before{
+            left: 50%;
+            transition-delay: .20s;
+        }
+        .container:after{
+            left: 75%;
+        }
+        .inner:hover .main:before,
+        .inner:hover .main:after,
+        .inner:hover .container:before,
+        .inner:hover .container:after{
+            opacity: 1;
+            transform: scale(1);
+        }
+    </style>
+</head>
+<body>
+<div class="inner">
+    <div class="main">
+        <div class="container"></div>
+    </div>
+</div>
+<script>
+
+</script>
+</body>
+</html>
